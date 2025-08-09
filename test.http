@@ -1,0 +1,11 @@
+# This enpoint fetches every video fo the plalist, and is very slow since it fetches the details of each video
+GET http://localhost:8000/playlist
+?url=https://www.youtube.com/playlist?list=PLqqAKLz1TIXD3uEdIRm7x0Jo1y77tsIxh
+
+###
+
+# This endpoint is meant for very fast fetching using flatlist exclusively
+GET http://localhost:8000/flatlist
+?url=https://www.youtube.com/playlist?list=PLqqAKLz1TIXD3uEdIRm7x0Jo1y77tsIxh
+
+###

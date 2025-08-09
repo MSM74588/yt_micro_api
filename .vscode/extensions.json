@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "humao.rest-client",
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+    ]
+}
