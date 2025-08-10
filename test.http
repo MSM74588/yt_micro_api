@@ -9,3 +9,6 @@ GET http://localhost:8000/flatlist
 ?url=https://www.youtube.com/playlist?list=PLqqAKLz1TIXD3uEdIRm7x0Jo1y77tsIxh
 
 ###
+GET http://localhost:8000/video?url=https://www.youtube.com/watch?v=jfKfPfyJRdk
+
+###

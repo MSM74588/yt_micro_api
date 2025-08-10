@@ -26,7 +26,7 @@ class VideoResponseModel(BaseModel):
     thumbnail: Optional[str]
     view_count: Optional[int]
     upload_date: Optional[str]
-    is_live: Optional[str]
+    is_live: Optional[bool]
     
 
 class PlaylistItem(BaseModel):
