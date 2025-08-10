@@ -26,6 +26,7 @@ class VideoResponseModel(BaseModel):
     thumbnail: Optional[str]
     view_count: Optional[int]
     upload_date: Optional[str]
+    is_live: Optional[str]
     
 
 class PlaylistItem(BaseModel):
@@ -240,6 +241,7 @@ def getplaylistData(url: str = Query(..., description="YouTube playlist URL")):
 def getVideoData(url: str = Query(..., description="YouTube video URL")):
     """
     Fetch details for a single YouTube video (no stream URL).
+    Includes a check for whether the video is live.
     """
     print(f"[DEBUG] Fetching video metadata for: {url}")
 
@@ -275,8 +277,10 @@ def getVideoData(url: str = Query(..., description="YouTube video URL")):
         uploader_url=data.get("uploader_url"),
         thumbnail=(data.get("thumbnails", [{}])[-1].get("url") if data.get("thumbnails") else None),
         view_count=data.get("view_count"),
-        upload_date=iso_date
+        upload_date=iso_date,
+        is_live=bool(data.get("is_live", False))  # <--- added live check
     )
+
 
 @app.get("/channel", response_model=PlaylistResponseModel)
 def get_channel_data(url: str = Query(..., description="YouTube channel URL")):
